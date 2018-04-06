@@ -1,0 +1,20 @@
+The text you are analysing is :
+ BFHIEFBIOWEFBIQWEHOUYQWOWEQMK;REWENR315412389047EQW[]EQWE]#Q#?ÃQ?²
+
+Number of words: 0
+Number of spaces: 0
+Total characters including spaces: 66
+Total characters excluding spaces: 66
+Total number of recognised characters: 59
+Total number of unrecognised characters: 7
+
+The longest word is BFHIEFBIOWEFBIQWEHOUYQWOWEQMKREWENREQWEQWEQQ at 44 letters long.
+There are 0 words containing 1 letters.
+There are 0 words containing 2 letters.
+There are 0 words containing 3 letters.
+There are 0 words containing 4 letters.
+There are 0 words containing 5 letters.
+There are 0 words containing 6 letters.
+There are 0 words containing 7 letters.
+There are 1 words containing 8 or more letters.
+

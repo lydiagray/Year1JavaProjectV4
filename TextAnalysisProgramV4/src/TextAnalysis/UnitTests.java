@@ -46,7 +46,7 @@ class UnitTests {
 		String expectedResult = "";
 		String fileLocation = "unitTest.txt";
 		// act
-		String result = HelperMethods.convertTextFile(fileLocation);
+		String result = ImportFile.convertTextFile(fileLocation);
 		// assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -57,7 +57,7 @@ class UnitTests {
 		String expectedResult = longString;
 		String fileLocation = "C:\\code\\Year1JavaProjectV3\\TestTextFiles\\longStringFile.txt";
 		//act
-		String result = HelperMethods.convertTextFile(fileLocation);
+		String result = ImportFile.convertTextFile(fileLocation);
 		//assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -69,7 +69,7 @@ class UnitTests {
 		char character = 'W';
 		TextAnalysis testCase = new TextAnalysis(longString);
 		// act
-		int result = testCase.countCharacters(testCase.inputAsArray, character);
+		int result = testCase.countCharacters(character);
 		// assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -81,7 +81,7 @@ class UnitTests {
 		char character = 'B';
 		TextAnalysis testCase = new TextAnalysis(shortString);
 		//act
-		int result = testCase.countCharacters(testCase.inputAsArray, character);
+		int result = testCase.countCharacters(character);
 		//assert
 		Assert.assertEquals(expectedResult, result);
 		
@@ -94,7 +94,7 @@ class UnitTests {
 		char character = ',';
 		TextAnalysis testCase = new TextAnalysis(longString);
 		//act
-		int result = testCase.countCharacters(testCase.inputAsArray, character);
+		int result = testCase.countCharacters(character);
 		//assert
 		Assert.assertEquals(expectedResult, result);
 		
@@ -107,7 +107,7 @@ class UnitTests {
 		char character = '-';
 		TextAnalysis testCase = new TextAnalysis(shortString);
 		//act
-		int result = testCase.countCharacters(testCase.inputAsArray, character);
+		int result = testCase.countCharacters(character);
 		//assert
 		Assert.assertEquals(expectedResult, result);
 		
@@ -120,7 +120,7 @@ class UnitTests {
 		char character = '7';
 		TextAnalysis testCase = new TextAnalysis(longString);
 		//act
-		int result = testCase.countCharacters(testCase.inputAsArray, character);
+		int result = testCase.countCharacters(character);
 		//assert
 		Assert.assertEquals(expectedResult, result);		
 	}
@@ -132,7 +132,7 @@ class UnitTests {
 		char character = '6';
 		TextAnalysis testCase = new TextAnalysis(shortString);
 		//act
-		int result = testCase.countCharacters(testCase.inputAsArray, character);
+		int result = testCase.countCharacters(character);
 		//assert
 		Assert.assertEquals(expectedResult, result);		
 	}
@@ -144,7 +144,7 @@ class UnitTests {
 		char character = '"';
 		TextAnalysis testCase = new TextAnalysis("");
 		//act
-		int result = testCase.countCharacters(testCase.inputAsArray, character);
+		int result = testCase.countCharacters(character);
 		//assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -429,16 +429,16 @@ class UnitTests {
 	public void wordLengths_ShouldReturnCorrectArrayOfWordLengthsForShortString() {
 		//arrange
 		ArrayList<Integer> expectedResult = new ArrayList<Integer>();
-			expectedResult.add(4);
-			expectedResult.add(4);
-			expectedResult.add(2);
-			expectedResult.add(4);
-			expectedResult.add(3);
-			expectedResult.add(4);
-			expectedResult.add(2);
-			expectedResult.add(1);
-			expectedResult.add(5);
-			expectedResult.add(6);
+		expectedResult.add(4);
+		expectedResult.add(4);
+		expectedResult.add(2);
+		expectedResult.add(4);
+		expectedResult.add(3);
+		expectedResult.add(4);
+		expectedResult.add(2);
+		expectedResult.add(1);
+		expectedResult.add(5);
+		expectedResult.add(6);
 		TextAnalysis testCase = new TextAnalysis(shortString);
 		//act
 		ArrayList<Integer> result = new ArrayList<Integer>(testCase.getWordLengths());

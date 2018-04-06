@@ -10,56 +10,60 @@ import java.util.Arrays;
 public class TextAnalysis {
 	
 	//Attributes
+	
 	public String input;
 	public char[] inputAsArray;
-	public ArrayList<String> inputAsStringArrayList;
 	public String inputForDisplay;
+	public ArrayList<String> inputAsStringArrayList;
 	public int numberOfSpaces;
+	public int numberOfWords;
 	public int charsIncludingSpaces;
 	public int charsExcludingSpaces;
-	public int numberOfWords;
 	public int[] characterFrequency;
 	public int highestCount;
 	public int numberOfRecognisedCharacters;
 	public int numberOfUnrecognisedCharacters;
 	public String[] relativeFrequency;
 	public ArrayList<Integer> wordLengths;
-	public String wordLengthDisplay;
 	public ArrayList<Integer> wordLengthFrequencies;
-	public String wordLengthFrequenciesDisplay;
 	public ArrayList<String> longestWord;
+	public ArrayList<String> basicAnalysisForDisplay;
+	public String wordLengthFrequenciesDisplay;
 	public String longestWordForDisplay;
 	public static final char[] characterArray = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', ',', '!', '?', ':', ';', '"','\'', '&', '(', ')', '-', '@', '\\', '/'};
 	
 	
 	//Constructor
+	
 	public TextAnalysis(String userInput) {
 		this.input = userInput.toUpperCase();
 		this.inputAsArray = input.toCharArray();
-		this.inputAsStringArrayList = inputAsStringArrayList(inputAsArray, characterArray);
-		this.inputForDisplay = inputForDisplay(inputAsArray);
-		this.numberOfSpaces = numberOfSpaces(inputAsArray);
+		this.inputAsStringArrayList = inputAsStringArrayList();
+		this.numberOfSpaces = numberOfSpaces();
 		this.charsIncludingSpaces = inputAsArray.length;
 		this.charsExcludingSpaces = charsIncludingSpaces - numberOfSpaces;
-		this.numberOfWords = numberOfWords(numberOfSpaces);
-		this.characterFrequency = characterFrequency(inputAsArray, characterArray);
-		this.highestCount = highestCount(characterFrequency);
-		this.numberOfRecognisedCharacters = numberOfRecognisedCharacters(characterFrequency);
-		this.numberOfUnrecognisedCharacters = numberOfUnrecognisedCharacters(numberOfRecognisedCharacters, charsExcludingSpaces);
-		this.relativeFrequency = relativeFrequency(characterFrequency, charsExcludingSpaces);
-		this.wordLengths = wordLengths(inputAsArray, characterArray);
-		this.wordLengthDisplay = wordLengthDisplay(wordLengths);
-		this.wordLengthFrequencies = wordLengthFrequencies(wordLengths);
-		this.wordLengthFrequenciesDisplay = wordLengthFrequenciesDisplay(wordLengthFrequencies);
-		this.longestWord = longestWord(inputAsStringArrayList);
+		this.numberOfWords = numberOfWords();
+		this.characterFrequency = characterFrequency();
+		this.highestCount = highestCount();
+		this.numberOfRecognisedCharacters = numberOfRecognisedCharacters();
+		this.numberOfUnrecognisedCharacters = numberOfUnrecognisedCharacters();
+		this.relativeFrequency = relativeFrequency();
+		this.wordLengths = wordLengths();
+		this.wordLengthFrequencies = wordLengthFrequencies();
+		this.longestWord = longestWord();
+		this.inputForDisplay = inputForDisplay();
+		this.wordLengthFrequenciesDisplay = wordLengthFrequenciesDisplay();
 		this.longestWordForDisplay = longestWordForDisplay();
+		this.basicAnalysisForDisplay = basicAnalysisForDisplay();
 	}
 	
 	
 	//Methods
+	
 	//Get methods
+	
 	public String getInput() {return input;}
-	public String getInputForDisplay() {return inputForDisplay;}
+	public char[] getInputAsArray() {return inputAsArray;}
 	public ArrayList<String> getInputAsStringArrayList() {return inputAsStringArrayList;}
 	public int getNumberOfSpaces() {return numberOfSpaces;}
 	public int getCharsIncludingSpaces() {return charsIncludingSpaces;}
@@ -72,23 +76,28 @@ public class TextAnalysis {
 	public String[] getRelativeFrequency() {return relativeFrequency;}
 	public ArrayList<Integer> getWordLengths() {return wordLengths;}
 	public ArrayList<Integer> getWordLengthFrequencies() {return wordLengthFrequencies;}
-	public String getWordLengthFrequenciesDisplay() {return wordLengthFrequenciesDisplay;}
 	public ArrayList<String> getLongestWord() {return longestWord;}
+	public String getInputForDisplay() {return inputForDisplay;}
+	public String getWordLengthFrequenciesDisplay() {return wordLengthFrequenciesDisplay;}	
 	public String getLongestWordForDisplay() {return longestWordForDisplay;}
+	public ArrayList<String> getBasicAnalysisForDisplay() {return basicAnalysisForDisplay;}
+
 	
 	//Analysis methods
 	
-	public int numberOfSpaces(char[] inputAsArray) {
+	public int numberOfSpaces() {
 		int count = 0;
+		
 		for (int i = 0; i < inputAsArray.length; i++) {
 			if (inputAsArray[i] == ' ') {
 				count++;
 			}
 		}
+		
 		return count;
 	}
 	
-	public int numberOfWords(int numberOfSpaces) {
+	public int numberOfWords() {
 		if (numberOfSpaces == 0) {
 			return 0;
 		}
@@ -97,66 +106,79 @@ public class TextAnalysis {
 		}
 	}
 	
-	public int countCharacters(char[] inputAsArray, char character) {
-		int count = 0;		
+	public int countCharacters(char character) {
+		int count = 0;
+		
 		for (int i = 0; i < inputAsArray.length; i++) {
 			if (character == inputAsArray[i]) {
 				count++;
 			}
-		}		
+		}	
+		
 		return count;
 	}
 	
-	public int[] characterFrequency(char[] strArray, char[] characterArray) {
-		int[] frequencyValues = new int[51];	
+	public int[] characterFrequency() {
+		int[] frequencyValues = new int[characterArray.length];
+		
 		for (int i = 0; i < characterArray.length; i++) {
-			frequencyValues[i] = countCharacters(strArray, characterArray[i]); 
-		}		
+			frequencyValues[i] = countCharacters(characterArray[i]); 
+		}	
+		
 		return frequencyValues;
 	}
 	
-	public int highestCount(int[] characterFrequency) {
+	public int highestCount() {
 		int count = 0;
+		
 		for (int i = 0; i < characterFrequency.length; i++) {
 			if (characterFrequency[i] > count) {
 				count = characterFrequency[i];
 			}
 		}
+		
 		return count;
 	}
 	
-	public int numberOfRecognisedCharacters(int[] characterFrequency) {
+	public int numberOfRecognisedCharacters() {
 		int count = 0;
+		
 		for (int i = 0; i < characterFrequency.length; i++) {
 			count += characterFrequency[i];
 		}
+		
 		return count;
 	}
 	
-	public int numberOfUnrecognisedCharacters(int numberOfRecognisedCharacters, int charsExcludingSpaces) {
+	public int numberOfUnrecognisedCharacters() {
 		int count = charsExcludingSpaces - numberOfRecognisedCharacters;
+		
 		return count;
 	}
 	
-	public String[] relativeFrequency(int[] characterFrequency, int length) {
-		double[] relativeFrequency = new double[51];
-		double[] characterFrequencyDouble = new double[51];
-		String[] formattedRelativeFrequency = new String[51];
+	public String[] relativeFrequency() {
+		double[] relativeFrequency = new double[characterArray.length];
+		double[] characterFrequencyDouble = new double[characterArray.length];
+		String[] formattedRelativeFrequency = new String[characterArray.length];
+		
 		for (int i = 0; i < characterFrequency.length; i++) {
 			characterFrequencyDouble[i] = characterFrequency[i];
 		}
+		
 		for (int i = 0; i < characterFrequency.length; i++) {
-			if (length > 0) {
-				relativeFrequency[i] = (characterFrequencyDouble[i] / length);
+			if (charsExcludingSpaces > 0) {
+				relativeFrequency[i] = (characterFrequencyDouble[i] / charsExcludingSpaces);
 			}
 			else {
 				relativeFrequency[i] = 0;
 			}
 		}
+		
 		DecimalFormat df = new DecimalFormat("#.###");
 		df.setRoundingMode(RoundingMode.CEILING);
+		
 		for (int i = 0; i < relativeFrequency.length; i++) {
-			if (length > 0) {
+			if (charsExcludingSpaces > 0) {
 				formattedRelativeFrequency[i] = df.format(relativeFrequency[i]);
 			}
 			else {
@@ -167,12 +189,13 @@ public class TextAnalysis {
 		return formattedRelativeFrequency;
 	}
 	
-	public ArrayList<String> inputAsStringArrayList(char[] inputAsArray, char[] characterArray) {
+	public ArrayList<String> inputAsStringArrayList() {
 		ArrayList<String> inputAsStringArrayList = new ArrayList<String>();
 		String word = "";
 		
 		for (Character character : inputAsArray) {
 			if (character != ' ') {
+				//loop only uses alphabet characters so only index 0 -25 inclusive. Assumes the alphabet will always be at the beginning of characterArray
 				for (int j = 0; j < 26; j++) {
 					if (character == characterArray[j]) {
 						word += character;
@@ -186,15 +209,17 @@ public class TextAnalysis {
 			}
 		}
 		inputAsStringArrayList.add(word);
+		
 		return inputAsStringArrayList;
 	}
 	
-	public ArrayList<Integer> wordLengths(char[] inputAsArray, char[] characterArray) {
+	public ArrayList<Integer> wordLengths() {
 		ArrayList<Integer> wordLengths = new ArrayList<Integer>();
 		int count = 0;
 		
    		for (Character character : inputAsArray) {
 			if (character != ' ') {
+				//loop only uses alphabet characters so only index 0 -25 inclusive. Assumes the alphabet will always be at the beginning of characterArray
 				for (int j = 0; j < 26; j++) {
 					if (character == characterArray[j]) {
 						count++;
@@ -208,10 +233,11 @@ public class TextAnalysis {
 			}
 		}
    		wordLengths.add(count);
+   		
 		return wordLengths;
 	}
 	
-	public ArrayList<Integer> wordLengthFrequencies(ArrayList<Integer> wordLengths) {
+	public ArrayList<Integer> wordLengthFrequencies() {
 		ArrayList<Integer> wordLengthFrequencies = new ArrayList<Integer>();
 		int count = 0;
 		
@@ -231,13 +257,15 @@ public class TextAnalysis {
 			wordLengthFrequencies.add(count);
 			count = 0;
 		}
+		
 		return wordLengthFrequencies;
 	}
 	
-	public ArrayList<String> longestWord(ArrayList<String> input) {
+	public ArrayList<String> longestWord() {
 		ArrayList<String> longestWord = new ArrayList<String>();
 		int highest = 0;
-		for (String string : input) {
+		
+		for (String string : inputAsStringArrayList) {
 			if (string.length() > highest) {
 				longestWord.clear();
 				longestWord.add(string);
@@ -255,36 +283,38 @@ public class TextAnalysis {
 				}
 			}
 		}
+		
 		return longestWord;
 	}
 	
 	//Display methods
-	
-	public String inputForDisplay(char[] inputAsArray) {
+	public String inputForDisplay() {
 		String string = "";
 		int count = 0;
+		
 		for (int i = 0; i < inputAsArray.length; i++) {
 			string += inputAsArray[i];
 			if (inputAsArray[i] == ' ') {
 				count++;
 			}
-			if (inputAsArray[i] == ' ' && count%20 == 0) {
+			if (inputAsArray[i] == ' ' && count % 20 == 0) {
 				string += "\n";
 			}
 		}
 		return string;
 	}
 	
-	public String wordLengthDisplay(ArrayList<Integer> wordLengths) {
-		String wordLengthDisplay = "";
-		
+	public void displayWordLengths() {
+		System.out.println("Word lengths");
+    	System.out.println("");
 		for (int i = 0; i < wordLengths.size(); i++) {
-			wordLengthDisplay += "Word " + (i+1) + " is " + wordLengths.get(i) + " letters long.\n";
+			System.out.println("Word " + (i+1) + " is " + wordLengths.get(i) + " letters long.");
 		}
-		return wordLengthDisplay;
+    	System.out.println("");
 	}
 	
-	public String wordLengthFrequenciesDisplay(ArrayList<Integer> wordLengthFrequencies) {
+	public String wordLengthFrequenciesDisplay() {
+		
 		String wordLengthFrequenciesDisplay = "";
 		
 		for (int i = 0; i < 8; i++) {
@@ -295,12 +325,13 @@ public class TextAnalysis {
 				wordLengthFrequenciesDisplay += "There are " + wordLengthFrequencies.get(i) + " words containing 8 or more letters.\r\n";
 			}
 		}
+		
 		return wordLengthFrequenciesDisplay;
 	}
 	
 	public String longestWordForDisplay() {
-		String longestWordForDisplay = "";
-		String longestWordList = "";
+		String longestWordForDisplay = "", longestWordList = "";
+		
 		for (String word : longestWord) {
 			if (word.equals(longestWord.get(0))) {
 				longestWordList += word;
@@ -321,21 +352,34 @@ public class TextAnalysis {
 		
 		return longestWordForDisplay;
 	}
-	 
-	public String toString() {
-		return "\nThe text you are analysing is :\n\n" + inputForDisplay + "\n\nNumber of words: " 
-				+ numberOfWords + "\nNumber of spaces: " + numberOfSpaces + "\nTotal characters including spaces: " 
-				+ charsIncludingSpaces + "\nTotal characters excluding spaces: " + charsExcludingSpaces 
-				+ "\nTotal number of recognised characters: " + numberOfRecognisedCharacters + "\nTotal number of unrecognised characters: " 
-				+ numberOfUnrecognisedCharacters + "\n" + longestWordForDisplay + "\n"+ wordLengthFrequenciesDisplay;
-	}
 	
-	public void displayWordLengths() {
-		System.out.println(wordLengthDisplay);
+	public ArrayList<String> basicAnalysisForDisplay() {
+		ArrayList<String> basicAnalysisForDisplay = new ArrayList<String>();
+		
+		basicAnalysisForDisplay.add("Basic analysis");
+		basicAnalysisForDisplay.add("");
+		basicAnalysisForDisplay.add("Number of words: "	+ numberOfWords);
+		basicAnalysisForDisplay.add("Number of spaces: " + numberOfSpaces);
+		basicAnalysisForDisplay.add("Total characters including spaces: " + charsIncludingSpaces);
+		basicAnalysisForDisplay.add("Total characters excluding spaces: " + charsExcludingSpaces);
+		basicAnalysisForDisplay.add("Total number of recognised characters: " + numberOfRecognisedCharacters);
+		basicAnalysisForDisplay.add("Total number of unrecognised characters: " + numberOfUnrecognisedCharacters);
+		basicAnalysisForDisplay.add("");
+		basicAnalysisForDisplay.add(longestWordForDisplay);
+		basicAnalysisForDisplay.add(wordLengthFrequenciesDisplay);
+		basicAnalysisForDisplay.add("");
+		
+		return  basicAnalysisForDisplay;
 	}
-	
-	public void displayFrequencies(int[] characterFrequency, char[] characterArray, String[] relativeFrequency) {
-		//Part 1
+    
+    public void printBasicAnalysis() {
+    	for (String line : basicAnalysisForDisplay) {
+    		System.out.println(line);
+    	}
+    }
+    
+	public void displayFrequencies() {
+		//Table 1
 		String leftColumnTopBottom = "+---------+";
 		String columnTopBottom = "-----+";
 		String character = "|Character|";
@@ -344,6 +388,9 @@ public class TextAnalysis {
 		String leftColumnSpace = "|         |";
 		String columnSpace = "     |";
 		
+		System.out.println("Character frequency table");
+		System.out.println("");
+		
 		System.out.print(leftColumnTopBottom);
 		for (int i = 0; i < 26; i++) {
 			if (i != 26) {
@@ -439,7 +486,7 @@ public class TextAnalysis {
 		}
 		System.out.println("");
 		
-		//Part 2
+		//Table 2
 		
 		System.out.print(leftColumnTopBottom);
 		for (int i = 26; i < 51; i++) {
@@ -537,12 +584,11 @@ public class TextAnalysis {
 		System.out.println("");
 	}
 	
-	public void barChartFrequencies(int[] characterFrequency, char[] characterArray, int count) {
-	
-		if (count < 5) {
-			count = 5;
-		}
-		System.out.println("\n Number of character occurrences");
+	public void barChartFrequencies() {
+		//Have used ternary operators in work, trying one out here
+		int count = highestCount < 5 ? 5 : highestCount;
+		System.out.println("\nCharacter frequency bar chart");
+		System.out.println("");
 
 		for (int i = count; i > 0; i--) {
 			if (i < 10) {
@@ -566,13 +612,9 @@ public class TextAnalysis {
 		}
 		System.out.println("==========================================================================================================");
 		System.out.print("   |");
-		for (int i = 0; i < characterArray.length; i++) {
-			System.out.print(characterArray[i] + " ");
+		for (int i = 0; i < TextAnalysis.characterArray.length; i++) {
+			System.out.print(TextAnalysis.characterArray[i] + " ");
 		}
 		System.out.println("\n");
-
-
 	}
-	
-
 }
