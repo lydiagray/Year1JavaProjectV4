@@ -9,9 +9,10 @@ public class Main {
 		String input = "";
 		
 		System.out.println("Welcome to the LG Text Analysis Program");
-		AnalysisDisplayInterface.topMenuDisplay();
+
 			
 		do {
+			AnalysisDisplayInterface.topMenuDisplay();
 			Scanner sc = new Scanner(System.in);
 			programMode = sc.nextInt();
 			
@@ -57,7 +58,7 @@ public class Main {
 							break;
 						}					
 						else {
-							System.out.println("You must enter 1, 2 or 0 only");
+							System.out.println("You must select 1, 2 or 0 only");
 						}				
 					} while (inputType > 2 || inputType < 0);
 					break;
@@ -71,7 +72,8 @@ public class Main {
 					System.out.println("1: A short piece of text");
 					System.out.println("2: A long piece of text imported from a .txt file");
 					System.out.println("0: Return to the main menu");
-					demo = sc.nextInt();
+					Scanner demoOption = new Scanner(System.in);
+					demo = demoOption.nextInt();
 					
 					if (demo == 1) {
 						TextAnalysis textAnalysis = new TextAnalysis(UnitTests.shortString);
@@ -85,17 +87,15 @@ public class Main {
 						break;
 					}
 					else {
-						System.out.println("You must select 1, 2 or 0");
+						System.out.println("You must select 1, 2 or 0 only");
 					}
 				} while (demo > 2 || demo < 0);
 				break;
 				
 			default : 
-				System.out.println("You must select 1, 2 or 0");
+				System.out.println("You must select 1, 2 or 0 only");
 				break;
 			}
-			
-			AnalysisDisplayInterface.topMenuDisplay();
 			
 		} while (programMode != 0);			
 	}

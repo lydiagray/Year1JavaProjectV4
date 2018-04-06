@@ -38,6 +38,23 @@ public class HelperMethods {
         return equalOrNot;
     }
     
+    public static boolean compareTwoArrays(char[] arrayOne, char[] arrayTwo) {             
+        boolean equalOrNot = true;
+         
+        if(arrayOne.length == arrayTwo.length) {
+            for (int i = 0; i < arrayOne.length; i++) {
+                if(arrayOne[i] != (arrayTwo[i])) {
+                    equalOrNot = false;
+                }
+            }
+        }
+        else {
+        	equalOrNot = false;
+        }  
+        
+        return equalOrNot;
+    }
+    
     public static boolean compareTwoArrayLists(ArrayList<Integer> expected, ArrayList<Integer> result) {
     	boolean equalOrNot = true;
     	

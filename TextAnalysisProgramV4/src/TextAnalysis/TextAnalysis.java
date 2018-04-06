@@ -378,210 +378,67 @@ public class TextAnalysis {
     	}
     }
     
+	public void displayFrequenciesTableBorders(String first, String second, int start, int finish) {
+		System.out.print(first);
+		for (int i = start; i < finish; i++) {
+			if (i != finish) {
+				System.out.print(second);
+			}
+			else {
+				System.out.println(second);
+			}
+		}
+		System.out.println("");
+	}
+	
+	public void displayFrequenciesValues(String first, char[] array, int start, int finish) {
+		System.out.print(first);
+		for (int i = start; i < finish; i++) {
+			System.out.format("%-5s|", array[i]);
+		}
+		System.out.println("");
+	}
+	
+	public void displayFrequenciesValues(String first, int[] array, int start, int finish) {
+		System.out.print(first);
+		for (int i = start; i < finish; i++) {
+			System.out.format("%-5s|", array[i]);
+		}
+		System.out.println("");
+	}
+	
+	public void displayFrequenciesValues(String first, String[] array, int start, int finish) {
+		System.out.print(first);
+		for (int i = start; i < finish; i++) {
+			System.out.format("%-5s|", array[i]);
+		}
+		System.out.println("");
+	}
+	
 	public void displayFrequencies() {
-		//Table 1
-		String leftColumnTopBottom = "+---------+";
-		String columnTopBottom = "-----+";
-		String character = "|Character|";
-		String frequency = "|Frequency|";
-		String relative = "|Relative |";
-		String leftColumnSpace = "|         |";
-		String columnSpace = "     |";
-		
-		System.out.println("Character frequency table");
-		System.out.println("");
-		
-		System.out.print(leftColumnTopBottom);
-		for (int i = 0; i < 26; i++) {
-			if (i != 26) {
-				System.out.print(columnTopBottom);
-			}
-			else {
-				System.out.println(columnTopBottom);
-			}
-		}
-		System.out.println("");
-		
-		System.out.print(character);
-		for (int i = 0; i < 26; i++) {
-			System.out.format("%-5s|", characterArray[i]);
-		}
-		System.out.println("");
-		
-		System.out.print(leftColumnSpace);
-		for (int i = 0; i < 26; i++) {
-			if (i != 26) {
-				System.out.print(columnSpace);
-			}
-			else {
-				System.out.println(columnSpace);
-			}
-		}
-		System.out.println("");
-		
-		System.out.print(leftColumnTopBottom);
-		for (int i = 0; i < 26; i++) {
-			if (i != 26) {
-				System.out.print(columnTopBottom);
-			}
-			else {
-				System.out.println(columnTopBottom);
-			}
-		}
-		System.out.println("");
-		
-		System.out.print(character);
-		for (int i = 0; i < 26; i++) {
-			System.out.format("%-5s|", characterFrequency[i]);
-		}
-		System.out.println("");
-		
-		System.out.print(frequency);
-		for (int i = 0; i < 26; i++) {
-			if (i != 26) {
-				System.out.print(columnSpace);
-			}
-			else {
-				System.out.println(columnSpace);
-			}
-		}
-		System.out.println("");
-		
-		System.out.print(leftColumnTopBottom);
-		for (int i = 0; i < 26; i++) {
-			if (i != 26) {
-				System.out.print(columnTopBottom);
-			}
-			else {
-				System.out.println(columnTopBottom);
-			}
-		}
-		System.out.println("");
-		
-		System.out.print(relative);
-		for (int i = 0; i < 26; i++) {
-			System.out.format("%-5s|", relativeFrequency[i]);
-		}
-		System.out.println("");
-		
-		System.out.print(frequency);
-		for (int i = 0; i < 26; i++) {
-			if (i != 26) {
-				System.out.print(columnSpace);
-			}
-			else {
-				System.out.println(columnSpace);
-			}
-		}
-		System.out.println("");
-		
-		System.out.print(leftColumnTopBottom);
-		for (int i = 0; i < 26; i++) {
-			if (i != 26) {
-				System.out.print(columnTopBottom);
-			}
-			else {
-				System.out.println(columnTopBottom);
-			}
-		}
-		System.out.println("");
-		
-		//Table 2
-		
-		System.out.print(leftColumnTopBottom);
-		for (int i = 26; i < 51; i++) {
-			if (i != 51) {
-				System.out.print(columnTopBottom);
-			}
-			else {
-				System.out.println(columnTopBottom);
-			}
-		}
-		System.out.println("");
-		
-		System.out.print(character);
-		for (int i = 26; i < 51; i++) {
-			System.out.format("%-5s|", characterArray[i]);
-		}
-		System.out.println("");
-		
-		System.out.print(leftColumnSpace);
-		for (int i = 26; i < 51; i++) {
-			if (i != 51) {
-				System.out.print(columnSpace);
-			}
-			else {
-				System.out.println(columnSpace);
-			}
-		}
-		System.out.println("");
-		
-		System.out.print(leftColumnTopBottom);
-		for (int i = 26; i < 51; i++) {
-			if (i != 51) {
-				System.out.print(columnTopBottom);
-			}
-			else {
-				System.out.println(columnTopBottom);
-			}
-		}
-		System.out.println("");
-		
-		System.out.print(character);
-		for (int i = 26; i < 51; i++) {
-			System.out.format("%-5s|", characterFrequency[i]);
-		}
-		System.out.println("");
-		
-		System.out.print(frequency);
-		for (int i = 26; i < 51; i++) {
-			if (i != 51) {
-				System.out.print(columnSpace);
-			}
-			else {
-				System.out.println(columnSpace);
-			}
-		}
-		System.out.println("");
-		
-		System.out.print(leftColumnTopBottom);
-		for (int i = 26; i < 51; i++) {
-			if (i != 51) {
-				System.out.print(columnTopBottom);
-			}
-			else {
-				System.out.println(columnTopBottom);
-			}
-		}
-		System.out.println("");
-		
-		System.out.print(relative);
-		for (int i = 26; i < 51; i++) {
-			System.out.format("%-5s|", relativeFrequency[i]);
-		}
-		System.out.println("");
-		
-		System.out.print(frequency);
-		for (int i = 26; i < 51; i++) {
-			if (i != 51) {
-				System.out.print(columnSpace);
-			}
-			else {
-				System.out.println(columnSpace);
-			}
-		}
-		System.out.println("");
-		
-		System.out.print(leftColumnTopBottom);
-		for (int i = 26; i < 51; i++) {
-			if (i != 51) {
-				System.out.print(columnTopBottom);
-			}
-			else {
-				System.out.println(columnTopBottom);
-			}
-		}
-		System.out.println("");
+		String leftColumnTopBottom = "+---------+", columnTopBottom = "-----+", character = "|Character|", frequency = "|Frequency|", relative = "|Relative |", leftColumnSpace = "|         |", columnSpace = "     |";
+		//Part 1
+		displayFrequenciesTableBorders(leftColumnTopBottom, columnTopBottom, 0, 26);
+		displayFrequenciesValues(character, characterArray, 0, 26);
+		displayFrequenciesTableBorders(leftColumnSpace, columnSpace, 0, 26);
+		displayFrequenciesTableBorders(leftColumnTopBottom, columnTopBottom, 0, 26);
+		displayFrequenciesValues(character, characterFrequency, 0, 26);
+		displayFrequenciesTableBorders(frequency, columnSpace, 0, 26);
+		displayFrequenciesTableBorders(leftColumnTopBottom, columnTopBottom, 0, 26);
+		displayFrequenciesValues(relative, relativeFrequency, 0, 26);
+		displayFrequenciesTableBorders(frequency, columnSpace, 0, 26);
+		displayFrequenciesTableBorders(leftColumnTopBottom, columnTopBottom, 0, 26);		
+		//Part 2		
+		displayFrequenciesTableBorders(leftColumnTopBottom, columnTopBottom, 26, 51);
+		displayFrequenciesValues(character, characterArray, 26, 51);
+		displayFrequenciesTableBorders(leftColumnSpace, columnSpace, 26, 51);
+		displayFrequenciesTableBorders(leftColumnTopBottom, columnTopBottom, 26, 51);
+		displayFrequenciesValues(character, characterFrequency, 26, 51);
+		displayFrequenciesTableBorders(frequency, columnSpace, 26, 51);
+		displayFrequenciesTableBorders(leftColumnTopBottom, columnTopBottom, 26, 51);
+		displayFrequenciesValues(relative, relativeFrequency, 26, 51);
+		displayFrequenciesTableBorders(frequency, columnSpace, 26, 51);
+		displayFrequenciesTableBorders(leftColumnTopBottom, columnTopBottom, 26, 51);
 	}
 	
 	public void barChartFrequencies() {

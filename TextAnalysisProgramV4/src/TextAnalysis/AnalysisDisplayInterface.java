@@ -79,7 +79,8 @@ public class AnalysisDisplayInterface {
 		    		}
 		    		break;
 		    	default: 
-		    		System.out.println("You must only enter a number between 0 and 6");		    	
+		    		System.out.println("You must only enter a number between 0 and 6");	
+		    		break;
 	    	}
 	    	System.out.println("");
     	} while (display != 0);
