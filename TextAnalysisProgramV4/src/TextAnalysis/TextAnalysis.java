@@ -1,11 +1,8 @@
 package TextAnalysis;
 
 import java.math.RoundingMode;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class TextAnalysis {
 	
@@ -40,8 +37,8 @@ public class TextAnalysis {
 		this.inputAsArray = input.toCharArray();
 		this.inputAsStringArrayList = inputAsStringArrayList();
 		this.numberOfSpaces = numberOfSpaces();
-		this.charsIncludingSpaces = inputAsArray.length;
-		this.charsExcludingSpaces = charsIncludingSpaces - numberOfSpaces;
+		this.charsIncludingSpaces = charsIncludingSpaces();
+		this.charsExcludingSpaces = charsExcludingSpaces();
 		this.numberOfWords = numberOfWords();
 		this.characterFrequency = characterFrequency();
 		this.highestCount = highestCount();
@@ -118,6 +115,14 @@ public class TextAnalysis {
 		return count;
 	}
 	
+	public int charsIncludingSpaces() {
+		return inputAsArray.length;
+	}
+	
+	public int charsExcludingSpaces() {
+		return charsIncludingSpaces - numberOfSpaces;
+	}
+	
 	public int[] characterFrequency() {
 		int[] frequencyValues = new int[characterArray.length];
 		
@@ -151,9 +156,7 @@ public class TextAnalysis {
 	}
 	
 	public int numberOfUnrecognisedCharacters() {
-		int count = charsExcludingSpaces - numberOfRecognisedCharacters;
-		
-		return count;
+		return charsExcludingSpaces - numberOfRecognisedCharacters;
 	}
 	
 	public String[] relativeFrequency() {
@@ -417,6 +420,7 @@ public class TextAnalysis {
 	
 	public void displayFrequencies() {
 		String leftColumnTopBottom = "+---------+", columnTopBottom = "-----+", character = "|Character|", frequency = "|Frequency|", relative = "|Relative |", leftColumnSpace = "|         |", columnSpace = "     |";
+		System.out.println("\n\rCharacter frequency table\n\r");
 		//Part 1
 		displayFrequenciesTableBorders(leftColumnTopBottom, columnTopBottom, 0, 26);
 		displayFrequenciesValues(character, characterArray, 0, 26);

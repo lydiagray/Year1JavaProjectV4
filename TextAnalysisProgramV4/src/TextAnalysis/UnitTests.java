@@ -23,9 +23,20 @@ class UnitTests {
 		}
 		TextAnalysis testCase = new TextAnalysis(shortString);
 		//act
-		ArrayList<String> result = testCase.getInputAsStringArrayList();
+		ArrayList<String> result = testCase.inputAsStringArrayList();
 		//assert
 		Assert.assertEquals(true, HelperMethods.compareTwoStringArrayLists(expectedResult, result));
+	}
+	
+	@Test
+	public void longestWordForDisplay_ShouldReturnCorrectString() {
+		//arrange
+		String expectedResult = "The longest word is STRING at 6 letters long.";
+		TextAnalysis testCase = new TextAnalysis(shortString);
+		//act
+		String result = testCase.longestWordForDisplay();
+		//assert
+		Assert.assertEquals(expectedResult, result);
 	}
 	
 	@Test
@@ -35,7 +46,7 @@ class UnitTests {
 		expectedResult.add("STRING");
 		TextAnalysis testCase = new TextAnalysis(shortString);
 		//act
-		ArrayList<String> result = testCase.getLongestWord();
+		ArrayList<String> result = testCase.longestWord();
 		//assert
 		Assert.assertEquals(true, HelperMethods.compareTwoStringArrayLists(expectedResult, result));
 	}
@@ -55,7 +66,7 @@ class UnitTests {
 	public void convertTextFile_ShouldConvertLongStringTextFileToString() {
 		//arrange
 		String expectedResult = longString;
-		String fileLocation = "C:\\code\\Year1JavaProjectV3\\TestTextFiles\\longStringFile.txt";
+		String fileLocation = "..\\TestTextFiles\\longStringFile.txt";
 		//act
 		String result = ImportFile.convertTextFile(fileLocation);
 		//assert
@@ -155,7 +166,7 @@ class UnitTests {
 		int[] expectedArray = {2,0,0,0,0,0,1,6,6,0,0,0,0,1,1,0,0,2,7,6,0,0,2,0,1,0,1,0,0,1,0,0,3,1,0,2,1,1,1,1,0,0,0,0,0,1,1,0,0,0,0};
 		TextAnalysis testCase = new TextAnalysis(shortString);
 		//act
-		int[] resultArray = testCase.getCharacterFrequency();
+		int[] resultArray = testCase.characterFrequency();
 		//assert		
 		Assert.assertEquals(HelperMethods.compareTwoArrays(expectedArray, resultArray), true);
 	}
@@ -166,7 +177,7 @@ class UnitTests {
 		int[] expectedArray = {31,10,13,18,56,7,13,31,40,0,6,10,3,34,35,10,0,27,32,39,11,5,14,0,8,0,0,2,0,0,1,0,1,2,1,0,1,9,0,1,1,0,0,0,0,1,1,1,0,0,0};
 		TextAnalysis testCase = new TextAnalysis(longString);
 		//act
-		int[] resultArray = testCase.getCharacterFrequency();
+		int[] resultArray = testCase.characterFrequency();
 		//assert		
 		Assert.assertEquals(HelperMethods.compareTwoArrays(expectedArray, resultArray), true);		
 	}
@@ -177,7 +188,7 @@ class UnitTests {
 		int[] expectedArray = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 		TextAnalysis testCase = new TextAnalysis("");
 		//act
-		int[] resultArray = testCase.getCharacterFrequency();
+		int[] resultArray = testCase.characterFrequency();
 		//assert
 		Assert.assertEquals(HelperMethods.compareTwoArrays(expectedArray, resultArray), true);	
 	}
@@ -188,7 +199,7 @@ class UnitTests {
 		int expectedResult = 10;
 		TextAnalysis testCase = new TextAnalysis(shortString);
 		//act
-		int result = testCase.getNumberOfSpaces();
+		int result = testCase.numberOfSpaces();
 		//assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -199,7 +210,7 @@ class UnitTests {
 		int expectedResult = 110;
 		TextAnalysis testCase = new TextAnalysis(longString);
 		//act
-		int result = testCase.getNumberOfSpaces();
+		int result = testCase.numberOfSpaces();
 		//assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -210,7 +221,7 @@ class UnitTests {
 		int expectedResult = 0;
 		TextAnalysis testCase = new TextAnalysis("");
 		//act
-		int result = testCase.getNumberOfSpaces();
+		int result = testCase.numberOfSpaces();
 		//assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -221,7 +232,7 @@ class UnitTests {
 		int expectedResult = 11;
 		TextAnalysis testCase = new TextAnalysis(shortString);
 		//act
-		int result = testCase.getNumberOfWords();
+		int result = testCase.numberOfWords();
 		//assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -232,7 +243,7 @@ class UnitTests {
 		int expectedResult = 111;
 		TextAnalysis testCase = new TextAnalysis(longString);
 		//act
-		int result = testCase.getNumberOfWords();
+		int result = testCase.numberOfWords();
 		//assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -243,7 +254,7 @@ class UnitTests {
 		int expectedResult = 0;
 		TextAnalysis testCase = new TextAnalysis("");
 		//act
-		int result = testCase.getNumberOfWords();
+		int result = testCase.numberOfWords();
 		//assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -254,7 +265,7 @@ class UnitTests {
 		String[] expectedArray = {"0.041","0","0","0","0","0","0.021","0.123","0.123","0","0","0","0","0.021","0.021","0","0","0.041","0.143","0.123","0","0","0.041","0","0.021","0","0.021","0","0","0.021","0","0","0.062","0.021","0","0.041","0.021","0.021","0.021","0.021","0","0","0","0","0","0.021","0.021","0","0","0","0"};
 		TextAnalysis testCase = new TextAnalysis(shortString);
 		//act
-		String[] resultArray = testCase.getRelativeFrequency();
+		String[] resultArray = testCase.relativeFrequency();
 		//assert		
 		Assert.assertEquals(HelperMethods.compareTwoArrays(expectedArray, resultArray), true);
 		
@@ -266,7 +277,7 @@ class UnitTests {
 		String[] expectedArray = {"0.066","0.022","0.028","0.038","0.118","0.015","0.028","0.066","0.085","0","0.013","0.022","0.007","0.072","0.074","0.022","0","0.057","0.068","0.083","0.024","0.011","0.03","0","0.017","0","0","0.005","0","0","0.003","0","0.003","0.005","0.003","0","0.003","0.019","0","0.003","0.003","0","0","0","0","0.003","0.003","0.003","0","0","0"};
 		TextAnalysis testCase = new TextAnalysis(longString);		
 		//act
-		String[] resultArray = testCase.getRelativeFrequency();
+		String[] resultArray = testCase.relativeFrequency();
 		//assert		
 		Assert.assertEquals(HelperMethods.compareTwoArrays(expectedArray, resultArray), true);		
 	}
@@ -277,7 +288,7 @@ class UnitTests {
 		String[] expectedArray = {"0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"};
 		TextAnalysis testCase = new TextAnalysis("");
 		//act
-		String[] resultArray = testCase.getRelativeFrequency();
+		String[] resultArray = testCase.relativeFrequency();
 		//assert
 		Assert.assertEquals(HelperMethods.compareTwoArrays(expectedArray, resultArray), true);	
 	}
@@ -288,7 +299,7 @@ class UnitTests {
 		int expectedResult = 7;
 		TextAnalysis testCase = new TextAnalysis(shortString);
 		//act
-		int result = testCase.getHighestCount();
+		int result = testCase.highestCount();
 		//assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -299,7 +310,7 @@ class UnitTests {
 		int expectedResult = 56;
 		TextAnalysis testCase = new TextAnalysis(longString);
 		//act
-		int result = testCase.getHighestCount();
+		int result = testCase.highestCount();
 		//assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -310,7 +321,7 @@ class UnitTests {
 		int expectedResult = 0;
 		TextAnalysis testCase = new TextAnalysis("");
 		//act
-		int result = testCase.getHighestCount();
+		int result = testCase.highestCount();
 		//assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -321,7 +332,7 @@ class UnitTests {
 		int expectedResult = 59;
 		TextAnalysis testCase = new TextAnalysis(shortString);
 		//act
-		int result = testCase.getCharsIncludingSpaces();
+		int result = testCase.charsIncludingSpaces();
 		//assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -332,7 +343,7 @@ class UnitTests {
 		int expectedResult = 585;
 		TextAnalysis testCase = new TextAnalysis(longString);
 		//act
-		int result = testCase.getCharsIncludingSpaces();
+		int result = testCase.charsIncludingSpaces();
 		//assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -343,7 +354,7 @@ class UnitTests {
 		int expectedResult = 0;
 		TextAnalysis testCase = new TextAnalysis("");
 		//act
-		int result = testCase.getCharsIncludingSpaces();
+		int result = testCase.charsIncludingSpaces();
 		//assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -354,7 +365,7 @@ class UnitTests {
 		int expectedResult = 49;
 		TextAnalysis testCase = new TextAnalysis(shortString);
 		//act
-		int result = testCase.getCharsExcludingSpaces();
+		int result = testCase.charsExcludingSpaces();
 		//assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -365,7 +376,7 @@ class UnitTests {
 		int expectedResult = 475;
 		TextAnalysis testCase = new TextAnalysis(longString);
 		//act
-		int result = testCase.getCharsExcludingSpaces();
+		int result = testCase.charsExcludingSpaces();
 		//assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -376,7 +387,7 @@ class UnitTests {
 		int expectedResult = 0;
 		TextAnalysis testCase = new TextAnalysis("");
 		//act
-		int result = testCase.getCharsExcludingSpaces();
+		int result = testCase.charsExcludingSpaces();
 		//assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -387,7 +398,7 @@ class UnitTests {
 		int expectedResult = 71;
 		TextAnalysis testCase = new TextAnalysis(varietyString);
 		//act
-		int result = testCase.getNumberOfRecognisedCharacters();		
+		int result = testCase.numberOfRecognisedCharacters();		
 		//assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -398,7 +409,7 @@ class UnitTests {
 		int expectedResult = 0;
 		TextAnalysis testCase = new TextAnalysis("");
 		//act
-		int result = testCase.getNumberOfRecognisedCharacters();		
+		int result = testCase.numberOfRecognisedCharacters();		
 		//assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -409,7 +420,7 @@ class UnitTests {
 		int expectedResult = 22;
 		TextAnalysis testCase = new TextAnalysis(varietyString);
 		//act
-		int result = testCase.getNumberOfUnrecognisedCharacters();		
+		int result = testCase.numberOfUnrecognisedCharacters();		
 		//assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -420,7 +431,7 @@ class UnitTests {
 		int expectedResult = 0;
 		TextAnalysis testCase = new TextAnalysis("");
 		//act
-		int result = testCase.getNumberOfRecognisedCharacters();		
+		int result = testCase.numberOfUnrecognisedCharacters();		
 		//assert
 		Assert.assertEquals(expectedResult, result);
 	}
@@ -429,19 +440,12 @@ class UnitTests {
 	public void wordLengths_ShouldReturnCorrectArrayOfWordLengthsForShortString() {
 		//arrange
 		ArrayList<Integer> expectedResult = new ArrayList<Integer>();
-		expectedResult.add(4);
-		expectedResult.add(4);
-		expectedResult.add(2);
-		expectedResult.add(4);
-		expectedResult.add(3);
-		expectedResult.add(4);
-		expectedResult.add(2);
-		expectedResult.add(1);
-		expectedResult.add(5);
-		expectedResult.add(6);
+		Integer[] tempArray = new Integer[] {4,4,2,4,3,4,2,1,5,6};
+		expectedResult.addAll(Arrays.asList(tempArray));
+
 		TextAnalysis testCase = new TextAnalysis(shortString);
 		//act
-		ArrayList<Integer> result = new ArrayList<Integer>(testCase.getWordLengths());
+		ArrayList<Integer> result = new ArrayList<Integer>(testCase.wordLengths());
 		//assert
 		Assert.assertEquals(true, HelperMethods.compareTwoArrayLists(expectedResult, result));
 	}
@@ -454,33 +458,33 @@ class UnitTests {
 		expectedResult.addAll(Arrays.asList(resultArray));
 		TextAnalysis testCase = new TextAnalysis(longString);
 		//act
-		ArrayList<Integer> result = new ArrayList<Integer>(testCase.getWordLengths());
+		ArrayList<Integer> result = new ArrayList<Integer>(testCase.wordLengths());
 		//assert
 		Assert.assertEquals(true, HelperMethods.compareTwoArrayLists(expectedResult, result));
 	}
 	
 	@Test
-	public void wordLengthFrequency_ShouldReturnCorrectArrayOfWordLengthFrequenciesForShortString() {
+	public void wordLengthFrequencies_ShouldReturnCorrectArrayOfWordLengthFrequenciesForShortString() {
 		//arrange
 		Integer[] resultArray = new Integer[] {1,2,1,4,1,1,0,0};
 		ArrayList<Integer> expectedResult = new ArrayList<Integer>();
 		expectedResult.addAll(Arrays.asList(resultArray));
 		TextAnalysis testCase = new TextAnalysis(shortString);
 		//act
-		ArrayList<Integer> result = new ArrayList<Integer>(testCase.getWordLengthFrequencies());
+		ArrayList<Integer> result = new ArrayList<Integer>(testCase.wordLengthFrequencies());
 		//assert
 		Assert.assertEquals(true, HelperMethods.compareTwoArrayLists(expectedResult, result));
 	}
 	
 	@Test
-	public void wordLengthFrequency_ShouldReturnCorrectArrayOfWordLengthFrequenciesForLongString() {
+	public void wordLengthFrequencies_ShouldReturnCorrectArrayOfWordLengthFrequenciesForLongString() {
 		//arrange
 		Integer[] resultArray = new Integer[] {3,24,33,15,9,8,10,8};
 		ArrayList<Integer> expectedResult = new ArrayList<Integer>();
 		expectedResult.addAll(Arrays.asList(resultArray));
 		TextAnalysis testCase = new TextAnalysis(longString);
 		//act
-		ArrayList<Integer> result = new ArrayList<Integer>(testCase.getWordLengthFrequencies());
+		ArrayList<Integer> result = new ArrayList<Integer>(testCase.wordLengthFrequencies());
 		//assert
 		Assert.assertEquals(true, HelperMethods.compareTwoArrayLists(expectedResult, result));
 	}

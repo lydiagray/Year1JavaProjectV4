@@ -14,15 +14,19 @@ public class AnalysisDisplayInterface {
 		System.out.println("0: Exit the program");
 	}
 	
+	public static void displayInput(TextAnalysis textAnalysis) {
+		System.out.println("");
+		System.out.println("The text you are analysing is :");
+		System.out.println("");
+		System.out.println(textAnalysis.getInputForDisplay());
+		System.out.println("");
+	}
+	
     public static void displayInterface(TextAnalysis textAnalysis) {
     	Scanner sc = new Scanner(System.in);
     	int display = 1;
     	
     	do {
-    		System.out.println("");
-    		System.out.println("The text you are analysing is :");
-    		System.out.println("");
-    		System.out.println(textAnalysis.getInputForDisplay());
     		System.out.println("");
 	    	System.out.println("What analysis would you like to see?");
 			System.out.println("1: Show all analysis");
@@ -37,22 +41,33 @@ public class AnalysisDisplayInterface {
 	    	switch(display) {
 	    		case 0: break;
 		    	case 1:
+		    		displayInput(textAnalysis);
 			    	textAnalysis.printBasicAnalysis();
 		    		textAnalysis.displayFrequencies();
 		    		textAnalysis.barChartFrequencies();
 		    		textAnalysis.displayWordLengths();
+		    		System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+		    		System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		    		break;
 		    	case 2:
+		    		displayInput(textAnalysis);
 		    		textAnalysis.printBasicAnalysis();
+		    		System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+		    		System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		    		break;
 		    	case 3:
+		    		displayInput(textAnalysis);
 		    		textAnalysis.displayFrequencies();
 		    		break;
 		    	case 4:
+		    		displayInput(textAnalysis);
 		    		textAnalysis.barChartFrequencies();
 		    		break;
 		    	case 5:
+		    		displayInput(textAnalysis);
 		    		textAnalysis.displayWordLengths();
+		    		System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+		    		System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		    		break;
 		    	case 6:
 		    		Scanner filenameScanner = new Scanner(System.in);
@@ -77,6 +92,8 @@ public class AnalysisDisplayInterface {
 		    		} catch (FileNotFoundException e) {
 		    			System.out.println("Something went wrong, please try again");
 		    		}
+		    		System.out.println("-----------------------------------------------------------------------");
+		    		System.out.println("-----------------------------------------------------------------------");
 		    		break;
 		    	default: 
 		    		System.out.println("You must only enter a number between 0 and 6");	

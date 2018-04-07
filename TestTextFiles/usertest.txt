@@ -1,0 +1,25 @@
+The text you are analysing is :
+1164778 ALICE WAS BEGINNING TO GET VERY TIRED OF SITTING BY HER SISTER ON THE BANK, AND OF HAVING NOTHING 
+TO DO: ONCE OR TWICE SHE HAD PEEPED INTO THE BOOK HER SISTER WAS READING, BUT IT HAD NO PICTURES 
+OR CONVERSATIONS IN IT, AND WHERE IS THE USE OF A BOOK, THOUGHT ALICE, WITHOUT PICTURES OR CONVERSATIONS? SO SHE 
+WAS CONSIDERING IN HER OWN MIND, (AS WELL AS SHE COULD, FOR THE HOT DAY MADE HER FEEL VERY SLEEPY 
+AND STUPID,) WHETHER THE PLEASURE OF MAKING A DAISY-CHAIN WAS WORTH THE TROUBLE OF GETTING UP AND PICKING THE DAISIES, 
+WHEN A WHITE RABBIT WITH PINK EYES RAN CLOSE BY HER.
+
+Number of words: 111
+Number of spaces: 110
+Total characters including spaces: 585
+Total characters excluding spaces: 475
+Total number of recognised characters: 475
+Total number of unrecognised characters: 0
+
+The longest word is CONVERSATIONS at 13 letters long.
+There are 3 words containing 1 letters.
+There are 24 words containing 2 letters.
+There are 33 words containing 3 letters.
+There are 15 words containing 4 letters.
+There are 9 words containing 5 letters.
+There are 8 words containing 6 letters.
+There are 10 words containing 7 letters.
+There are 8 words containing 8 or more letters.
+

@@ -80,7 +80,7 @@ public class Main {
 						AnalysisDisplayInterface.displayInterface(textAnalysis);
 					}
 					else if (demo == 2) {
-						TextAnalysis textAnalysis = new TextAnalysis(ImportFile.convertTextFile("C:\\code\\Year1JavaProjectV3\\TestTextFiles\\longStringFile.txt"));
+						TextAnalysis textAnalysis = new TextAnalysis(ImportFile.convertTextFile("..\\TestTextFiles\\longStringFile.txt"));
 						AnalysisDisplayInterface.displayInterface(textAnalysis);
 					}
 					else if (demo == 0) {
